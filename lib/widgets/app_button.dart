@@ -12,6 +12,7 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 56,
       margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20),
       width: MediaQuery.of(context).size.width,
       child: icon != null ? ElevatedButton.icon(

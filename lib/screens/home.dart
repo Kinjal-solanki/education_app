@@ -22,36 +22,13 @@ class _HomeState extends State<Home> {
           body: CustomScrollView(
             slivers: [
               SliverAppBar(
-                backgroundColor: Colors.cyan,
+                actions: [
+                  Padding(padding: EdgeInsets.only(right: 8, top: 16),
+                  child: Icon(Icons.notification_add))
+                ],
                 automaticallyImplyLeading: false,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Stack(
-                    children: [
-                      Positioned(
-                        top: 60,
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 20,
-                              width: 20,
-                              color: Colors.orange,
-                              margin: EdgeInsets.only(left: 16),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: 16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [Text("data"), Text("data")],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                expandedHeight: 60,
+                flexibleSpace: _buildNavigationBar(),
+                expandedHeight: 80,
                 floating: true,
                 pinned: false,
                 snap: false,
@@ -69,6 +46,43 @@ class _HomeState extends State<Home> {
             ),
           ),
       );
+  }
+
+  Widget _buildNavigationBar() {
+    return FlexibleSpaceBar(
+      background: Stack(
+        children: [
+          Positioned(
+            top: 80,
+            child: Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(left: 16),
+                  child: const CircleAvatar(),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 16),
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Haalo, Samule",
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.access_alarm_outlined),
+                          Text("+1600 followers"),
+                        ],
+                      )],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget menu() {
