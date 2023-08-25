@@ -18,7 +18,7 @@ class _LoginState extends State<Login> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -76,7 +76,7 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                 child: Stack(
                   children: <Widget> [
-                    Divider(),
+                    const Divider(),
                     Center(
                       child: Container(
                         width: 50,

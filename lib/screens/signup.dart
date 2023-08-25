@@ -9,8 +9,8 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle defaultStyle = TextStyle(color: Colors.grey, fontSize: 14.0);
-    TextStyle linkStyle = TextStyle(color: Colors.blue);
+    TextStyle defaultStyle = const TextStyle(color: Colors.grey, fontSize: 14.0);
+    TextStyle linkStyle = const TextStyle(color: Colors.blue);
 
     return Scaffold(
       appBar: AppBar(

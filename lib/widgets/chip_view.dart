@@ -13,15 +13,14 @@ class ChipView extends StatelessWidget {
           itemCount: 10,
           itemBuilder: (context, index) {
             return Padding(
-              padding: EdgeInsets.only(right: 8.0, top: 16.0),
+              padding: const EdgeInsets.only(right: 8.0, top: 16.0),
               child: Chip(
                 // shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
                 color: MaterialStateProperty.all(Colors.lightBlue),
                 label: Text("text"),
               ),
             );
-          }
-      ),
+          }),
     );
   }
 }

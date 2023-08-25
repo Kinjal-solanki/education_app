@@ -30,8 +30,7 @@ class AppButton extends StatelessWidget {
               foregroundColor: MaterialStateProperty.all(textColor)
           )
       ) : ElevatedButton(
-          onPressed: callback,
-          child: Text(buttonText), //label text
+          onPressed: callback, //label text
           style: ButtonStyle(
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
@@ -43,7 +42,8 @@ class AppButton extends StatelessWidget {
               foregroundColor: MaterialStateProperty.all(textColor),
               elevation: MaterialStateProperty.all(1),
               shadowColor: MaterialStateProperty.all(Color(0xFFEC5F5F))
-          )
+          ),
+          child: Text(buttonText)
       ),
     );
   }

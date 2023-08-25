@@ -33,7 +33,8 @@ class _CarouselState extends State<Carousel> {
               itemBuilder: (BuildContext context, int itemIndex) {
                 return Transform.scale(
                     scale: itemIndex == _index ? 1 : 0.9,
-                    child: _buildCarouselItem(context, carouselIndex, itemIndex));
+                    child:
+                        _buildCarouselItem(context, carouselIndex, itemIndex));
               },
             ),
           ),
@@ -42,10 +43,10 @@ class _CarouselState extends State<Carousel> {
             height: 5,
             width: MediaQuery.of(context).size.width,
             child: Center(
-              child: Row (
-                  mainAxisAlignment: MainAxisAlignment.center, // Align indicators at the center
-                  children: _buildPageIndicator()
-              ),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // Align indicators at the center
+                  children: _buildPageIndicator()),
             ),
           )
         ],
@@ -53,7 +54,8 @@ class _CarouselState extends State<Carousel> {
     );
   }
 
-  Widget _buildCarouselItem(BuildContext context, int carouselIndex, int itemIndex) {
+  Widget _buildCarouselItem(
+      BuildContext context, int carouselIndex, int itemIndex) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 4.0),
       child: GestureDetector(
@@ -82,19 +84,20 @@ class _CarouselState extends State<Carousel> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 150),
         margin: const EdgeInsets.symmetric(horizontal: 4.0),
-        height: isActive
-            ? 5:2.0,
+        height: isActive ? 5 : 2.0,
         width: isActive ? 20 : 15,
-        decoration: BoxDecoration(borderRadius: const BorderRadius.all(Radius.circular(2.5)),
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(2.5)),
           boxShadow: [
             isActive
                 ? BoxShadow(
-              color: Color(0XFF2FB7B2).withOpacity(0.72),
-              blurRadius: 4.0,
-              spreadRadius: 1.0,
-            ) : const BoxShadow(
-              color: Colors.transparent,
-            )
+                    color: Color(0XFF2FB7B2).withOpacity(0.72),
+                    blurRadius: 4.0,
+                    spreadRadius: 1.0,
+                  )
+                : const BoxShadow(
+                    color: Colors.transparent,
+                  )
           ],
           shape: BoxShape.rectangle,
           color: isActive ? const Color(0XFF6BC4C9) : const Color(0XFFEAEAEA),

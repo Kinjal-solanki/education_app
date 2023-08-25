@@ -1,4 +1,5 @@
 import 'package:education_mobile_app/widgets/app_button.dart';
+import 'package:education_mobile_app/widgets/bottom_sheet_container.dart';
 import 'package:education_mobile_app/widgets/fade_end_listview.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class CourseDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Course Details'),
+        title: const Text('Course Details'),
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 16.0),
@@ -89,8 +90,7 @@ class CourseDetail extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(16),
                                   ),
                                   child: const Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 5),
+                                    padding: EdgeInsets.symmetric(vertical: 5),
                                     child: Align(
                                       alignment: Alignment.center,
                                       // Aligns text vertically centered
@@ -144,49 +144,70 @@ class CourseDetail extends StatelessWidget {
             scrollDirection: Axis.vertical,
             itemCount: 10,
             itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(top: 10),
-                height: 85,
-                width: MediaQuery.of(context).size.width,
-                child: Card(
-                  child: Row(
-                    children: [
-                      Container(
-                          margin: EdgeInsets.only(left: 8),
-                          height: 60,
-                          width: 60,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            gradient: const LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment(1, 1),
-                              colors: <Color>[
-                                Color(0xFFEC5F5F),
-                                Color(0xffffffff),
-                              ],
-                              tileMode: TileMode.mirror,
-                            ),
-                          )),
-                      const Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('How to get feedback on their products in just 5 days' , overflow: TextOverflow.clip, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-                              Text('04:10 m', style: TextStyle(fontSize: 14),),
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              );
+              return _buildVideoListItem(context);
             },
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildVideoListItem(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: 10),
+      height: 85,
+      width: MediaQuery.of(context).size.width,
+      child: GestureDetector(
+        onTap: () {
+          showModalBottomSheet<void>(
+              context: context,
+              isScrollControlled: true,
+              builder: (BuildContext context) {
+                return BottomSheetContainer();
+              });
+        },
+        child: Card(
+          child: Row(
+            children: [
+              Container(
+                  margin: EdgeInsets.only(left: 8),
+                  height: 60,
+                  width: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    gradient: const LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment(1, 1),
+                      colors: <Color>[
+                        Color(0xFFEC5F5F),
+                        Color(0xffffffff),
+                      ],
+                      tileMode: TileMode.mirror,
+                    ),
+                  )),
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                          'How to get feedback on their products in just 5 days',
+                          overflow: TextOverflow.clip,
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.bold)),
+                      Text(
+                        '04:10 m',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

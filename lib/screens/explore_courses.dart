@@ -15,11 +15,11 @@ class ExploreCourses extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _getLiveStories(context),
-          Padding(
-            padding: const EdgeInsets.only(top: 16.0),
+          const Padding(
+            padding: EdgeInsets.only(top: 16.0),
             child: Text('Upcoming course of the week', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
           ),
-          ChipView(),
+          const ChipView(),
           Carousel(height: 360, callback: (){
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => const CourseDetail()));

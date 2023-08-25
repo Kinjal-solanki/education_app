@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/carousel.dart';
+import 'inbox.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,13 +17,13 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return  DefaultTabController(
-        length: 3,
+        length: 4,
         child: Scaffold(
           bottomNavigationBar: menu(),
           body: CustomScrollView(
             slivers: [
               SliverAppBar(
-                actions: [
+                actions: const [
                   Padding(padding: EdgeInsets.only(right: 8, top: 16),
                   child: Icon(Icons.notification_add))
                 ],
@@ -33,12 +34,13 @@ class _HomeState extends State<Home> {
                 pinned: false,
                 snap: false,
               ),
-              SliverFillRemaining(
+              const SliverFillRemaining(
                 child: TabBarView(
                   children: [
                     ExploreCourses(),
-                    Container(child: Icon(Icons.directions_transit)),
-                    Container(child: Icon(Icons.directions_bike)),
+                    Icon(Icons.directions_transit),
+                    Icon(Icons.directions_bike),
+                    Inbox(),
                   ],
                 ),
               ),
@@ -66,7 +68,7 @@ class _HomeState extends State<Home> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Haalo, Samule",
+                      Text("Halo, Samule",
                         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                       ),
                       Row(
@@ -87,8 +89,8 @@ class _HomeState extends State<Home> {
 
   Widget menu() {
     return Container(
-      color: Color(0xFF3F5AA6),
-      child: SafeArea(
+      color: const Color(0xFF3F5AA6),
+      child: const SafeArea(
         child: TabBar(
           dividerColor: Colors.transparent,
           labelColor: Colors.white,
@@ -103,6 +105,9 @@ class _HomeState extends State<Home> {
             ),
             Tab(
               icon: Icon(Icons.account_balance_wallet),
+            ),
+            Tab(
+              icon: Icon(Icons.mail),
             ),
           ],
         ),

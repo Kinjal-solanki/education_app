@@ -21,14 +21,14 @@ class GetStartedView extends StatelessWidget {
                 child: Image(image: AssetImage('assets/Logo.png')),
               ),
             ),
-            SizedBox(height: 80,),
-            Text('Welcome to Ajheryuk',
+            const SizedBox(height: 80,),
+            const Text('Welcome to Ajheryuk',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24
                 ),),
-            Text('Best and popular apps for live education course from home',
+            const Text('Best and popular apps for live education course from home',
                 textAlign: TextAlign.center, style: TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: 16,
@@ -40,7 +40,7 @@ class GetStartedView extends StatelessWidget {
               icon: null,
               callback: (){
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Login()));
+                  builder: (context) => const Login()));
               },
               backgroundColor: Color(0xFFEC5F5F),
               textColor: Colors.white,
